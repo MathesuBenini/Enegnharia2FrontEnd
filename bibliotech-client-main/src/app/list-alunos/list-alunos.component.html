@@ -1,0 +1,22 @@
+<div class="bg-main-green h-screen flex flex-col w-full bg-blue-500 items-center  p-6 ">
+    <main class="flex flex-col items-center px-12  max-w-2xl bg-blue-300 py-20 rounded-md w-full">
+        <table class="w-full">
+            <tr class=" text-main font-main text-xl">
+                <th class="text-left py-10 ">Matricula</th>
+                <th class="text-left py-10 ">Nome</th>
+                <th class="text-left py-10 ">CPF</th>
+            </tr>
+            <tr (click)="goToAluno(aluno.matricula)" class="text-lg hover:bg-blue-800 hover:text-white cursor-pointer my-12 border-y border-blue-800" *ngFor="let aluno of listaAlunos">
+                <td id="{aluno.cpf}">{{aluno.matricula}}</td>
+                <td id="{aluno.cpf}">{{aluno.nome}}</td>
+                <td id="{aluno.cpf}">{{aluno.cpf}}</td>
+            </tr>
+        </table>
+    </main>
+    <button
+    (click)="goToMenu()"
+    class="h-14 max-w-24 mt-11 hover:bg-blue-900 ease-in duration-100 bg-blue-800 w-full font-semibold rounded-[5px] font-second text-white "
+    >
+        INICIO
+    </button>
+</div>

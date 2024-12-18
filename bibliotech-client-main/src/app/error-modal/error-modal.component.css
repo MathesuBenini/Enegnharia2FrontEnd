@@ -1,0 +1,15 @@
+@keyframes bounce {
+    0%{
+        display: hidden;
+        transform: translateY(70%);
+    }
+    100%{
+        display: flex;
+        text-align: center;
+    }
+    
+}
+
+.animate-up {
+    animation: bounce 700ms ease-in-out;
+}

@@ -1,0 +1,35 @@
+
+<form [formGroup] = "alunoForm" class="bg-main-green h-screen flex flex-col w-full bg-blue-500 items-center  p-6 ">
+    <app-error-modal  
+    [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
+    errorMessage="{{error?.errorMessage}}" >
+    </app-error-modal>
+    <main class="flex flex-col items-center max-w-2xl bg-blue-300 py-20 rounded-md w-full">
+        <div class="flex flex-col justify-center  font-second text-xl text-main-gray w-full max-w-sm ">
+            <input 
+                class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+                formControlName = "nome"
+                placeholder="Nome" 
+                type="text"
+            />
+            <input 
+                class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+                formControlName = "cpf"
+                placeholder="CPF" 
+                type="text"
+                
+            />
+            <textarea
+            class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+            formControlName = "endereco" 
+            placeholder="Endereco"
+            ></textarea>
+            <button
+            (click)="onSubmit()"
+            class="h-14 -mt-2 hover:bg-blue-900 ease-in duration-100 bg-blue-800 w-full font-semibold rounded-[5px] font-second text-white "
+            >
+                ENVIAR
+            </button>
+        </div>   
+    </main>
+</form>

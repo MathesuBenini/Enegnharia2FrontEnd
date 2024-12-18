@@ -1,0 +1,37 @@
+<div class="bg-main-green min-h-screen flex flex-col w-full bg-blue-500 items-center  p-6 ">
+    <main class="flex flex-col items-center px-12  max-w-2xl bg-blue-300 py-12 rounded-md w-full">
+        <div class="flex flex-col justify-center items-center  w-full {{hasDebito ? 'mb-11' : 'mb-0'}}">
+            <h3 class="text-left pb-5  font-bold text-xl">Nome : {{aluno?.nome}}</h3>
+            <h3 class="text-left py-5 font-bold text-xl">CPF: {{aluno?.cpf}}</h3>
+            <h3 class="text-left pt-5 font-bold text-xl">
+                {{aluno!.debitos!.length === 0 ? 'Não possui debitos': 'Valor do debito: '+ calcularDebitos() + ' reais'}}
+            </h3>
+        </div> 
+        
+         
+        <form *ngIf="aluno!.debitos!.length === 0" class=" w-full flex flex-col justify-center mt-10 items-center" [formGroup] = "debitoForm" >
+            <input 
+            ngClass="{{hasDebito ? 'flex' : 'hidden'}}"
+            class="  outline-none h-14 mb-11 max-w-72 rounded-[5px] -mt-8 pl-5 w-full "
+            formControlName = "debito"
+            placeholder="Digite o valor do debito" 
+            type="text"
+            />
+            <button
+            (click)="hasDebito ? criarDebito() : setHasDebito()"
+            class="h-14 -mt-2 hover:bg-blue-900 max-w-44 ease-in duration-100 bg-blue-800 w-full font-semibold rounded-[5px] font-second text-white "
+            >
+                {{hasDebito ?  'ENVIAR' : 'CRIAR DEBITO'}}
+            </button>
+        </form>
+
+        
+        
+    </main>
+    <button
+    (click)="goToMenu()"
+    class="h-14 max-w-24 mt-11 hover:bg-blue-900 ease-in duration-100 bg-blue-800 w-full font-semibold rounded-[5px] font-second text-white "
+    >
+        INICIO
+    </button>
+</div>

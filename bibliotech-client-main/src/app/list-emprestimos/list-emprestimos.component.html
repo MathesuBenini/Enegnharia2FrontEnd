@@ -1,0 +1,41 @@
+<div class="bg-main-green h-screen flex flex-col w-full bg-blue-500 items-center  p-6 ">
+    <main class="flex flex-col items-center px-12  max-w-2xl bg-blue-300 py-20 rounded-md w-full">
+        <app-error-modal  
+        [ngClass]="hasError ? 'z-10 w-full relative text-center': 'hidden'" 
+        errorMessage="{{error?.errorMessage}}" >
+        </app-error-modal>
+        <form class="mb-11" [formGroup] = "emprestimosForm" >
+            <input 
+            class="  outline-none h-14 mb-11 rounded-[5px] pl-5 w-full "
+            formControlName = "matricula"
+            placeholder="Matricula do aluno" 
+            type="text"
+            />
+            <button
+            (click)="onSubmit()"
+            class="h-14 -mt-2 hover:bg-blue-900 ease-in duration-100 bg-blue-800 w-full font-semibold rounded-[5px] font-second text-white "
+            >
+                ENVIAR
+            </button>
+        </form>
+        <h1 class="font-bold  text-2xl text-left" *ngIf="aluno !== undefined" >{{aluno.nome}}</h1>
+        <table class="w-full">
+            <tr class=" text-main font-main text-xl">
+                <th class="text-left py-10 ">ID</th>
+                <th class="text-left py-10 ">Data do emprestimo</th>
+                <th class="text-left py-10 ">Data de devolução</th>
+            </tr>
+            <tr (click)="goToEmprestimo(emprestimo.idEmprestimo)"  class="text-lg hover:bg-blue-800 hover:text-white cursor-pointer my-12 border-y border-blue-800" *ngFor="let emprestimo of listaEmprestimos">
+                <td >{{emprestimo.idEmprestimo}}</td>
+                <td >{{emprestimo.dataEmprestimo}}</td>
+                <td >{{emprestimo.devolucao.dataDevolucao}}</td>
+            </tr>
+        </table>
+    </main>
+    <button
+    (click)="goToMenu()"
+    class="h-14 max-w-24 mt-11 hover:bg-blue-900 ease-in duration-100 bg-blue-800 w-full font-semibold rounded-[5px] font-second text-white "
+    >
+        INICIO
+    </button>
+</div>

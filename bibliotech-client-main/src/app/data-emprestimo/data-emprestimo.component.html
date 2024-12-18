@@ -1,0 +1,32 @@
+<div class="bg-main-green min-h-screen flex flex-col w-full bg-blue-500 items-center  p-6 ">
+    <main class="flex flex-col items-center px-12  max-w-2xl bg-blue-300 pb-20 rounded-md w-full">
+        <div class="flex flex-col justify-start  w-full mb-11">
+            <h3 class="text-left py-10 font-bold text-xl">Multa : {{emprestimo?.devolucao?.multa}}</h3>
+            <h3 class="text-left py-10 font-bold text-xl">Dias em atraso: {{emprestimo?.devolucao?.atraso}}</h3>
+            <h3 class="text-left py-10 font-bold text-xl">Data de emprestimo: {{emprestimo?.dataEmprestimo}}</h3>
+            <h3 class="text-left py-10 font-bold text-xl">Data de devolucao: {{emprestimo?.devolucao?.dataDevolucao}}</h3>
+        </div>
+        <h1 class="font-bold text-3xl ">Lista de livros</h1>
+        <table class="w-full mb-11">
+            <tr class=" text-main font-main text-xl">
+                <th class="text-left py-10 ">Isbn</th>
+                <th class="text-left py-10 ">Nome</th>
+                <th class="text-left py-10 ">Prazo</th>
+            </tr>
+            <tr class="text-lg hover:bg-blue-800 hover:text-white cursor-pointer my-12 border-y border-blue-800" *ngFor="let item of emprestimo?.itensDevolucao">
+                <td id="{aluno.cpf}">{{item.livro.titulo.isbn}}</td>
+                <td id="{aluno.cpf}">{{item.livro.titulo.nome}}</td>
+                <td id="{aluno.cpf}">{{item.livro.titulo.prazo}} dias</td>
+            </tr>
+        </table>
+
+        <button
+        (click)="devolver()"
+        class="h-14 -mt-2 hover:bg-blue-900 ease-in duration-100 bg-blue-800 w-full font-semibold rounded-[5px] font-second text-white "
+        >
+            DEVOLVER
+        </button>
+        
+        
+    </main>
+</div>
